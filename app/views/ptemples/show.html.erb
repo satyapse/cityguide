@@ -9,6 +9,9 @@
 	<div class="col-md-8">
 	    <%= link_to "Edit this Temple", edit_ptemple_path(@ptemple), class: "btn btn-success pull-right" %>
 	    <h3><%= @ptemple.summary %></h3>
+	      <div class="show_ptemple">
+	  	   <%= image_tag(@ptemple.picture.url, class: "gravatar") if @ptemple.picture? %>  <!-- addition of imagetag -->
+	      </div>
 	    <div class="well">
 	   	  <p>
 	   	  <strong>Steps:</strong>

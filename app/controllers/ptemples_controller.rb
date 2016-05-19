@@ -38,10 +38,9 @@ class PtemplesController < ApplicationController
    end
  end
 
-private
+ private
    def ptemple_params
-    params.require(:ptemple).permit(:name, :summary, :description)
-  end
+    params.require(:ptemple).permit(:name, :summary, :description, :picture)
+   end
 
-    
 end
