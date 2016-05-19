@@ -1,0 +1,20 @@
+<%= render 'shared/page_title', title: @ptemple.name %>
+<div class="row">
+	<div class="col-md-4 pull-right center">
+		<%= link_to gravatar_for @ptemple.customer, size: 200  %>
+		<p>
+		  <h5>Brought to you by: <%= @ptemple.customer.customername %></h5>
+		</p>
+	</div>
+	<div class="col-md-8">
+	    <%= link_to "Edit this Temple", edit_ptemple_path(@ptemple), class: "btn btn-success pull-right" %>
+	    <h3><%= @ptemple.summary %></h3>
+	    <div class="well">
+	   	  <p>
+	   	  <strong>Steps:</strong>
+	   	  </p>
+	   	  <%= simple_format(@ptemple.description) %>
+	   	 </div>
+	</div>
+</div>
+<h5><%= link_to "Return to Temples Listing", ptemples_path, class: "btn btn-warning btn-small" %></h5>
