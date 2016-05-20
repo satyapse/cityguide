@@ -11,11 +11,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160519093116) do
+ActiveRecord::Schema.define(version: 20160519145710) do
 
   create_table "customers", force: :cascade do |t|
     t.string   "customername"
     t.string   "email"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "likes", force: :cascade do |t|
+    t.boolean  "like"
+    t.integer  "customer_id"
+    t.integer  "ptemple_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

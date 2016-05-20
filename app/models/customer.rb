@@ -1,5 +1,6 @@
 class Customer < ActiveRecord::Base
-  has_many :ptemples  
+  has_many :ptemples
+  has_many :likes
   before_save { self.email = email.downcase}
   validates :customername, presence: true, length: { minimum: 3, maximum: 40 }
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i

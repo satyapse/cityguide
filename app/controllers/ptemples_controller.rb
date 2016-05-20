@@ -1,7 +1,7 @@
 class PtemplesController < ApplicationController
 
  def index
-   @ptemples = Ptemple.all 
+   @ptemples = Ptemple.paginate( page: params[:page], per_page: 3)
  end
 
  def show
@@ -36,6 +36,18 @@ class PtemplesController < ApplicationController
    else
  	render :edit
    end
+ end
+ 
+ def like
+  @ptemple = Ptemple.find(params[:id])
+  like = Like.create(like: params[:like], customer: Customer.first, ptemple: @ptemple)
+  if like.valid?
+   flash[:success] = "Your selection was successful"
+   redirect_to :back
+  else
+	  flash[:danger] = "You can only like/dislike a recipe once"
+	  redirect_to :back
+  end
  end
 
  private

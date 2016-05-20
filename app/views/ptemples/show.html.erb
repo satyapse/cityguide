@@ -17,6 +17,16 @@
 	   	  <strong>Steps:</strong>
 	   	  </p>
 	   	  <%= simple_format(@ptemple.description) %>
+	   	  
+	   	    <div class="pull-right">
+	   	       <%= link_to like_ptemple_path(@ptemple, like: true), method: :post do %>
+	   	        <i class="glyphicon glyphicon-thumbs-up"></i> &nbsp <%= @ptemple.thumbs_up_total %>
+	   	       <% end %> &nbsp&nbsp&nbsp&nbsp
+              <%= link_to like_ptemple_path(@ptemple, like: false), method: :post do %>
+                <i class="glyphicon glyphicon-thumbs-down"></i>&nbsp <%= @ptemple.thumbs_down_total %>
+	   	      <% end %>	
+	   	    </div>
+	   	  
 	   	 </div>
 	</div>
 </div>
