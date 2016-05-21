@@ -1,4 +1,8 @@
 <%= render 'shared/page_title', title: "PURI" %>
+<ul class="nav nav-tabs">
+  <li class="active"> <%= link_to "Temples", ptemples_path %> </li>
+  <li><%= link_to "Subscribers", customers_path %> </li>
+</ul>
 
 <%= will_paginate %>
 
