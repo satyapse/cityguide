@@ -1,0 +1,36 @@
+<%= render 'shared/page_title', title: "Customer: " + @customer.customername %>
+<div class="row">
+	<div class="col-md-4 col-md-offset-4 center">
+		<%= gravatar_for @customer, size: 200 %>
+		<hr/>
+	</div>
+</div>
+
+<div class="row">
+    <div class="col-md-4 col-md-offset-4 center">
+        <h3><em>Temples:</em></h3>
+        <%= will_paginate @ptemples %>
+    </div>
+</div>
+
+<% @ptemples.each do |ptemple| %>
+<div class="row">
+	<div class="col-lg-6 well col-lg-offset-3">
+    <h4><%= link_to ptemple.name, ptemple_path(ptemple) %></h4>
+      <p><%= ptemple.summary %></p>
+      <p>
+        <span class='quiet'><small> created: <%= time_ago_in_words(ptemple.created_at)%> ago, </small></span>
+        <span class='quiet'><small> updated: <%= time_ago_in_words(ptemple.updated_at)%> ago,</small></span>
+       </p>
+     <div class="pull-right">
+        <%= link_to like_ptemple_path(ptemple, like: true), method: :post do %>
+            <i class="glyphicon glyphicon-thumbs-up"></i> &nbsp <%= ptemple.thumbs_up_total %>
+        <% end %> &nbsp&nbsp&nbsp&nbsp
+        <%= link_to like_ptemple_path(ptemple, like: false), method: :post do %>
+            <i class="glyphicon glyphicon-thumbs-down"></i> &nbsp <%= ptemple.thumbs_down_total %>
+        <% end %> 
+
+      </div>
+    </div>
+    </div>
+    <% end %>

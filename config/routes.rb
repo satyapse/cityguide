@@ -8,4 +8,13 @@ Rails.application.routes.draw do
       post 'like'
     end
   end
+  
+  resources :customers, except: [:new]
+  
+  get '/register', to: 'customers#new'
+  
+  get '/login', to: 'logins#new'
+  post '/login', to: 'logins#create'
+  get '/logout', to: 'logins#destroy'
+  
 end

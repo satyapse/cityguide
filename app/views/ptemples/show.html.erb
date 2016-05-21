@@ -1,13 +1,15 @@
 <%= render 'shared/page_title', title: @ptemple.name %>
 <div class="row">
 	<div class="col-md-4 pull-right center">
-		<%= link_to gravatar_for @ptemple.customer, size: 200  %>
+		<%= link_to gravatar_for(@ptemple.customer, size: 200), customer_path(@ptemple.customer) %>
 		<p>
 		  <h5>Brought to you by: <%= @ptemple.customer.customername %></h5>
 		</p>
 	</div>
 	<div class="col-md-8">
+		<% if logged_in? and @ptemple.customer == current_user %>
 	    <%= link_to "Edit this Temple", edit_ptemple_path(@ptemple), class: "btn btn-success pull-right" %>
+	    <% end %>
 	    <h3><%= @ptemple.summary %></h3>
 	      <div class="show_ptemple">
 	  	   <%= image_tag(@ptemple.picture.url, class: "gravatar") if @ptemple.picture? %>  <!-- addition of imagetag -->

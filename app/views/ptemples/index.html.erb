@@ -6,7 +6,7 @@
   <div class="row">
   	<div class="col-md-2">
   		<section class="customer_info center">
-  		  <%= link_to gravatar_for(ptemple.customer, size: 100) %>
+  		  <%= link_to gravatar_for(ptemple.customer, size: 100), customer_path(ptemple.customer) %>
         <h5>name: <%= ptemple.customer.customername %></h5>
   		</section>
   	</div>
